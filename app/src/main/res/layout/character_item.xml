@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textViewCatName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorYellow"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewCatName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Test Test asfddddddddddddddddddddddddddddddddddddddddddd" />
+
+    <TextView
+        android:id="@+id/textViewCatHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/estatura"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName"/>
+
+    <TextView
+        android:id="@+id/textViewHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorYellow"
+        app:layout_constraintStart_toEndOf="@+id/textViewCatHeight"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName"
+        tools:text="Test" />
+
+    <TextView
+        android:id="@+id/textViewCatEyeColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/color_ojos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHeight" />
+
+    <TextView
+        android:id="@+id/textViewEyeColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorYellow"
+        app:layout_constraintStart_toEndOf="@+id/textViewCatEyeColor"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHeight"
+        tools:text="Test" />
+
+    <TextView
+        android:id="@+id/textViewCatBirthYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fecha_nacimiento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEyeColor" />
+
+    <TextView
+        android:id="@+id/textViewBirthYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorYellow"
+        app:layout_constraintStart_toEndOf="@+id/textViewCatBirthYear"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEyeColor"
+        tools:text="Test" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
