@@ -1,6 +1,8 @@
 package cat.itb.m08_uf1_p6_retrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +13,7 @@ import java.util.List;
 
 import cat.itb.m08_uf1_p6_retrofit.models.Data;
 import cat.itb.m08_uf1_p6_retrofit.models.People;
+import cat.itb.m08_uf1_p6_retrofit.recycler.PeopleAdapter;
 import cat.itb.m08_uf1_p6_retrofit.webservice.WebServiceClient;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private HttpLoggingInterceptor loggingInterceptor;
     private OkHttpClient.Builder httpClientBuilder;
     private List<People> peopleList = new ArrayList<>();
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lanzarPeticion();
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
     private void sout(String text) {
@@ -55,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
                 peopleList = response.body().getResults();
-                sout("funciono");
+                recyclerView.setAdapter(new PeopleAdapter(peopleList));
+
             }
 
             @Override
