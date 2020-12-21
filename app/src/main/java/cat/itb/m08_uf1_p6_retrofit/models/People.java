@@ -4,11 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class People {
     private String name;
-    private int height;
+    private String height;
     @SerializedName("eye_color")
     private String eyeColor;
     @SerializedName("birth_year")
     private String birthYear;
+    private String[] films;
 
     public String getName() {
         return name;
@@ -18,11 +19,11 @@ public class People {
         this.name = name;
     }
 
-    public int getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
@@ -42,13 +43,11 @@ public class People {
         this.birthYear = birthYear;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", height=" + height +
-                ", eyeColor='" + eyeColor + '\'' +
-                ", birthYear='" + birthYear + '\'' +
-                '}';
+    public String[] getFilms() {
+        return films;
+    }
+
+    public void setFilms(String[] films) {
+        this.films = films;
     }
 }

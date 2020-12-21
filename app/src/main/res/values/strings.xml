@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">M08_UF1_P6_Retrofit</string>
+    <string name="app_name">Retrofit StarWars</string>
     <string name="search_hint">Search...</string>
     <string name="previous">PREVIOUS</string>
     <string name="next">NEXT</string>
@@ -7,4 +7,5 @@
     <string name="estatura">Estatura: </string>
     <string name="color_ojos">Color ojos: </string>
     <string name="fecha_nacimiento">Fecha nacimiento: </string>
+    <string name="search_button">Search button</string>
 </resources>

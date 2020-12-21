@@ -2,7 +2,7 @@ package cat.itb.m08_uf1_p6_retrofit.models;
 
 import java.util.List;
 
-public class Data {
+public class DataPeople {
     private int count;
     private String next;
     private String previous;

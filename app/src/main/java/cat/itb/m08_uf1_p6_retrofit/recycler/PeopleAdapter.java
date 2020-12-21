@@ -15,9 +15,15 @@ import cat.itb.m08_uf1_p6_retrofit.models.People;
 
 public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.ViewHolder> {
     private List<People> peopleList;
+    private OnItemClickListener itemClickListener;
 
-    public PeopleAdapter(List<People> peopleList) {
+    public interface OnItemClickListener {
+        void OnItemClick(People people, int position);
+    }
+
+    public PeopleAdapter(List<People> peopleList, OnItemClickListener itemClickListener) {
         this.peopleList = peopleList;
+        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
@@ -34,8 +40,9 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.ViewHolder
         holder.getTextViewName().setText(p.getName());
         holder.getTextViewBirthYear().setText(p.getBirthYear());
         holder.getTextViewEyeColor().setText(p.getEyeColor());
-        holder.getTextViewHeight().setText(String.valueOf(p.getHeight()));
+        holder.getTextViewHeight().setText(p.getHeight());
 
+        holder.bind(p, itemClickListener);
     }
 
     @Override
@@ -46,6 +53,10 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textViewName, textViewHeight, textViewEyeColor, textViewBirthYear;
 
+        public void bind(People people, OnItemClickListener itemClickListener) {
+            itemView.setOnClickListener(v -> itemClickListener.OnItemClick(people, getAdapterPosition()));
+        }
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -53,6 +64,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.ViewHolder
             textViewHeight = itemView.findViewById(R.id.textViewHeight);
             textViewEyeColor = itemView.findViewById(R.id.textViewEyeColor);
             textViewBirthYear = itemView.findViewById(R.id.textViewBirthYear);
+
         }
 
         public TextView getTextViewName() {
@@ -70,5 +82,10 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.ViewHolder
         public TextView getTextViewBirthYear() {
             return textViewBirthYear;
         }
+    }
+
+    public void resetPeople(List<People> peopleList) {
+        this.peopleList = peopleList;
+        notifyDataSetChanged();
     }
 }
